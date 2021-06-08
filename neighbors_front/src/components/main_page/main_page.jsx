@@ -3,7 +3,6 @@ import Book from "../book/book";
 import Search from "../search/search";
 
 const MainPage = ({data}) => {
-    console.log(data);
     return(
         <>
         <Search />

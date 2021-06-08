@@ -12,14 +12,14 @@ const Navbar = () => {
             <div>
                 {login ?
                     <ul className={styles.navbarLists}>
-                        <Link to="/login">
-                            <li className={styles.navbarButton}>로그인 / 회원 가입</li>
-                        </Link>
+                        <li className={styles.navbarButton}>내 주변 서재</li>
+                        <li className={styles.navbarButton}>My page</li>
                     </ul>
                     : 
                     <ul className={styles.navbarLists}>
-                        <li className={styles.navbarButton}>내 주변 서재</li>
-                        <li className={styles.navbarButton}>My page</li>
+                    <Link to="/login">
+                        <li className={styles.navbarButton}>로그인 / 회원 가입</li>
+                    </Link>
                     </ul>
                 }
             </div>
