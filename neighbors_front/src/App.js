@@ -8,6 +8,60 @@ import MyPage from "./components/my_page/my_page";
 
 function App() {
   const data = [
+    {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
+  {
+      "title" : "나미야 잡화점",
+      "author" : "김영일",
+      "publishing" : "출판사",
+      "image" : "/images/book.png"
+  },
         {
             "title" : "나미야 잡화점",
             "author" : "김영일",
