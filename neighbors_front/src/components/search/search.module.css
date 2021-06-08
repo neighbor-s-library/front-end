@@ -1,0 +1,15 @@
+.search {
+  background-color: blueviolet;
+  padding:1rem;
+  text-align: center;
+}
+
+.input {
+  width: 90%;
+  height: 2rem;
+}
+
+.button {
+  height: 2rem;
+  width: 4rem;
+}

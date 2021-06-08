@@ -1,4 +1,7 @@
 .lists {
+    display: flex;
     background-color: peru;
-    /* displ */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
 }

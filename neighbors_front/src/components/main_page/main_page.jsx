@@ -1,14 +1,18 @@
 import styles from "./main_page.module.css"
 import Book from "../book/book";
+import Search from "../search/search";
 
 const MainPage = ({data}) => {
     console.log(data);
     return(
+        <>
+        <Search />
         <div className={styles.lists}>
             {data.map((book,index) => {
                 return <Book key={index} book={book}/>
             })}
         </div>
+        </>
     )
 }
 

@@ -4,7 +4,7 @@ const Book = ({book}) => {
     return (
         <div className={styles.book}>
             <img className={styles.image} src={book.image} />
-            <p className={styles.title}>{book.title}</p>
+            <h3 className={styles.title}>{book.title}</h3>
         </div>
     )
 }
