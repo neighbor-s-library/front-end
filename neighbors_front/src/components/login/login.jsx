@@ -22,7 +22,7 @@ const Login = () => {
         <div className={styles.container}>
             <form className={styles.loginForm}>
                 <h2 className={styles.title}>로그인</h2>
-                <div className={styles.test}>
+                <div className={styles.inputBox}>
                 <h2 className={styles.google} onClick={() => {console.log("무야호")}}>구글로 로그인 하기</h2>
                 <hr />
                 <input ref={emailRef} type="text" className={styles.input} placeholder="이메일"/>
