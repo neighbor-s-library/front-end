@@ -5,8 +5,17 @@
     align-items: center;
 }
 
+.loginToJoin {
+    display: flex;
+}
+
 .navbarLists {
     display: flex;
     text-decoration: none;
     list-style: none;
+}
+
+.navbarButton {
+    padding:5px;
+    text-align: right;
 }
