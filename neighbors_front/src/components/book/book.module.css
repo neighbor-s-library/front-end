@@ -1,0 +1,12 @@
+.book {
+    display: inline;
+}
+
+.image {
+    width:  20rem;
+}
+
+.title {
+    width: 20rem;
+    margin: 0;
+}
