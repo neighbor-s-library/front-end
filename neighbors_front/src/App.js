@@ -5,117 +5,75 @@ import MainPage from "./components/main_page/main_page";
 import Login from "./components/login/login";
 import Join from "./components/join/join";
 import MyPage from "./components/my_page/my_page";
+import Detail from "./components/detail/detail";
+import Registration from "./components/registration/registration";
+import AroundLibrary from "./components/around_library/around_library";
 
 function App() {
   const data = [
     {
+      "id" : "1",
       "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "2"  ,
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "3" , 
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "4"  ,
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "5"  ,
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "6" , 
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "7" , 
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "8"  ,
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
   {
-      "title" : "나미야 잡화점",
+    "id" : "9",  
+    "title" : "나미야 잡화점",
       "author" : "김영일",
       "publishing" : "출판사",
       "image" : "/images/book.png"
   },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
   ]
 
   return (
@@ -133,6 +91,13 @@ function App() {
         </Route>
         <Route exact path="/my-page">
           <MyPage />
+        </Route>
+        <Route exact path="/detail/:id" render={(props) => <Detail {...props} />} />
+        <Route exact path="/registration">
+          <Registration />
+        </Route>
+        <Route>
+          <AroundLibrary />
         </Route>
       </Switch>
     </Router>    

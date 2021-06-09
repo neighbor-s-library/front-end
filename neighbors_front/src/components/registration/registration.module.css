@@ -1,0 +1,34 @@
+.detail {
+    text-align: right;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.fileBox {
+    background-color: red;
+    width: 20rem;
+    height:20rem;
+}
+
+.metadata {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width:25rem;
+    height: 3rem;
+    margin: 0.5rem;
+}
+
+.textBox {
+    width: 100%;
+}
+
+.button {
+    width: 5rem;
+}
