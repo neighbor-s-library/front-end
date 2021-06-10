@@ -1,6 +1,12 @@
 import styles from "./sidebar_menu.module.css"
 
-const SideBarMenu = () => {
+const SideBarMenu = ({set}) => {
+    const onSubmit = (event) => {
+        const flag = event.target.value;
+        console.log(flag)
+        set(flag);
+    }
+
     return (
         <div className={styles.menu}>
             <img className={styles.avatar} src="/images/book.png" alt="avatar" />
@@ -11,10 +17,11 @@ const SideBarMenu = () => {
                 <h5 className={styles.data}>포인트 40000pt</h5>
             </div>
             <ul className={styles.tabs}>
-                <li className={styles.tab}>내 서재 관리</li>
-                <li className={styles.tab}>내가 빌려준 내역</li>
-                <li className={styles.tab}>내가 빌린 내역</li>
-                <li className={styles.tab}>개인정보 수정</li>
+                <li className={styles.tab} onClick={onSubmit} value="1">전체 보기</li>
+                <li className={styles.tab} onClick={onSubmit} value="2">내 서재 관리</li>
+                <li className={styles.tab} onClick={onSubmit} value="3">내가 빌려준 내역</li>
+                <li className={styles.tab} onClick={onSubmit} value="4">내가 빌린 내역</li>
+                <li className={styles.tab} onClick={onSubmit} value="5">개인정보 수정</li>
             </ul>
         </div>
     )

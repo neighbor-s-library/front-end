@@ -1,3 +1,7 @@
+.state {
+    overflow: hidden;
+}
+
 .myBooks {
     display: flex;
 }

@@ -1,0 +1,23 @@
+.myLibraryForm {
+    display: flex;
+    margin: 1rem;
+}
+
+.image {
+    background-color: dodgerblue;
+    width:10rem;
+    height: 10rem;
+    margin-right: 1rem;
+}
+
+.data {
+    margin: 0 0 0.5rem 0;
+    background-color: powderblue;
+}
+
+.description {
+    background-color: darkgrey;
+    width: 20rem;
+    height: 5rem;
+}
+

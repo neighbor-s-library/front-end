@@ -28,7 +28,7 @@ const MyPageState = () => {
     ]);
 
     return (
-        <div className={styles.State}>
+        <div className={styles.state}>
             <h1>내 서재</h1>
             <div className={styles.myBooks}>
                 {myData.map((book,index) => {
