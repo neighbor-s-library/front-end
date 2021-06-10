@@ -5,7 +5,7 @@ import {useState} from "react";
 const Navbar = () => {
     let [login, setLogin] = useState(false);
 
-    //테스트용 함수
+    //테스트용 함수 
     const changeState = () => {
         if(!login) {
             setLogin(true);

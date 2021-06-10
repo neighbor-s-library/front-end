@@ -1,9 +1,15 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
   width:70%;
   max-width: 100rem;
   margin: auto;
+}
+
+ul {
+  padding:0;
 }

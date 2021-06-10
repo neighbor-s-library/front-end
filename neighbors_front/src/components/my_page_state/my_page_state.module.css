@@ -1,0 +1,7 @@
+.myBooks {
+    display: flex;
+}
+
+.book {
+    width: 1rem;
+}
