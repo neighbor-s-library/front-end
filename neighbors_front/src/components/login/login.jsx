@@ -20,7 +20,7 @@ const Login = () => {
 
     return (
         <div className={styles.container}>
-            <form className={styles.loginForm}>
+            <form className={styles.form}>
                 <h2 className={styles.title}>로그인</h2>
                 <div className={styles.inputBox}>
                 <h2 className={styles.google} onClick={() => {console.log("무야호")}}>구글로 로그인 하기</h2>

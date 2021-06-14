@@ -23,6 +23,10 @@ button {
   border-radius: 4px;
 }
 
+hr {
+  color: makerDeepGreen;
+}
+
 h1 { 
   color: makerDeepGreen;
 }
@@ -33,5 +37,9 @@ h3 {
   color: makerDeepGreen;
 }
 h4 { 
+  color: makerDeepGreen;
+}
+
+li {
   color: makerDeepGreen;
 }

@@ -1,5 +1,6 @@
 .state {
-    overflow: hidden;
+    width: 100%;
+    overflow:scroll;
 }
 
 .myBooks {
@@ -8,4 +9,9 @@
 
 .book {
     width: 1rem;
+}
+
+.middleLine {
+    margin-left: 0;
+    width: 100%;
 }

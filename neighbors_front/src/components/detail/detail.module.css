@@ -1,42 +1,55 @@
+@value makerSmall from "../../common/size.css";
+@value makerPink from "../../common/color.css";
+
+.middleLine {
+    margin: 0;
+    width: 100%;
+}
+
 .detail {
-    /* text-align: right; */
+    text-align: center;
 }
 
 .container {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-bottom: 2rem;
 }
 
-.imageBox {
-    background-color: red;
-    width: 20rem;
-    height:20rem;
-}
-
 .img {
-    width: 30rem;
-    height: 30rem;
+    width: 50%;
+    height: 40%;
+    border-radius: 4px;
 }
 
-.metadata {
+.metadatas {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .metadata {
-    width:25rem;
-    height: 3rem;
-    margin: 1rem;
-    background-color: pink;
+    width:100%;
+    height: 100%;
+    margin: 10px;
 }
 
 .description {
-    background-color: plum;
+    background-color: makerPink;
     width: 100%;
     height: 10rem;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 4px;
 }
 
 .button {
-    width: 5rem;
+    margin-left:1rem;
+    height: 100%;
+    font-size: makerSmall;
+}
+
+.descriptionTitle {
+    text-align: left;
 }

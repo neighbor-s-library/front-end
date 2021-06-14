@@ -13,20 +13,20 @@ const Detail = ({match}) => {
 
     return (
         <form className={styles.detail}>
-            <h1 className={styles.metadata}>{data.title}</h1>
+            <h1 className={styles.title}>{data.title}</h1>
             <div className={styles.container}>
-                <div className={styles.imageBox}>
                     <img className={styles.img} src={data.images} />
-                </div>
                 <div className={styles.metadatas}>
                     <h3 className={styles.metadata}>{data.owner}</h3>
                     <h3 className={styles.metadata}>{data.author}</h3>
                     <h3 className={styles.metadata}>{data.maker}</h3>
                     <h3 className={styles.metadata}>{data.deadline}</h3>
+                    <button className={styles.button} onClick={() => {}}>채팅하기</button>
                 </div>
             </div>
+            <hr className={styles.middleLine}/>
+            <h2 className={styles.descriptionTitle}>상세 설명</h2>
             <div className={styles.description}>{data.description}</div>
-            <button className={styles.button} onClick={() => {}}>채팅하기</button>
         </form>
     )
 }

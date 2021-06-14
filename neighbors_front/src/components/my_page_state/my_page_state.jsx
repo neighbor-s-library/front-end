@@ -35,6 +35,7 @@ const MyPageState = () => {
                     return <Book key={index} book={book}></Book>
                 })}
             </div>
+            <hr className={styles.middleLine}/>
             <h1>대여한 책</h1>
             <div className={styles.myBooks}>
                 {myData.map((book,index) => {

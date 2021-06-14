@@ -5,9 +5,9 @@ const MyLibraryForm = ({book}) => {
         <div className={styles.myLibraryForm}>
             <img className={styles.image} src={book.image} alt="책 사진" />
             <div className={styles.datas}>
-                <h5 className={styles.data}>{book.title}</h5>
-                <h5 className={styles.data}>{book.author}</h5>
-                <h5 className={styles.data}>{book.publishing}</h5>
+                <h3 className={styles.data}>{book.title}</h3>
+                <h3 className={styles.data}>{book.author}</h3>
+                <h3 className={styles.data}>{book.publishing}</h3>
                 <div className={styles.description}>{book.description}</div>
             </div>
         </div>
