@@ -18,8 +18,11 @@ const Search = () => {
   return (
     <div className={styles.search}>
       <form className={styles.form}>
+        <div>
         <input ref={searchRef} className={styles.input} type="text" placeholder="검색"/>
-        <button className={styles.button}  type="submit" onClick={onSubmit}>검색</button>
+        <button className={styles.button}  type="submit" onClick={onSubmit}>검 색</button>
+        </div>
+        
       </form>
     </div>
   )

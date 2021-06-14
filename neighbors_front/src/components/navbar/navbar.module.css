@@ -1,8 +1,19 @@
+@value makerPink,makerDeepGreen from "../../common/color.css";
+@value makerSmall from "../../common/size.css";
+
 .navbar {
     display: flex;
-    background-color:blanchedalmond;
+    background-color:makerPink;
     justify-content: space-between;
     align-items: center;
+    height: 5rem;
+}
+
+.title {
+    font-weight: bold;
+    font-size: makerSmall;
+    color:  makerDeepGreen;
+    margin-left: 1rem;
 }
 
 .loginToJoin {
@@ -14,6 +25,9 @@
 }
 
 .navbarButton {
+    font-weight: bold;
+    font-size: makerSmall;
     padding:5px;
     text-align: right;
+    color:  makerDeepGreen;
 }

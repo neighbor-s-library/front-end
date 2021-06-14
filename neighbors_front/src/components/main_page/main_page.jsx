@@ -6,6 +6,7 @@ const MainPage = ({data}) => {
     return(
         <>
         <Search />
+        <h1>전체 책 목록</h1>
         <div className={styles.lists}>
             {data.map((book,index) => {
                 return <Book key={index} id={index} book={book}/>

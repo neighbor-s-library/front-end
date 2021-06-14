@@ -28,7 +28,7 @@ const Login = () => {
                 <input ref={emailRef} type="text" className={styles.input} placeholder="이메일"/>
                 <input ref={passwordRef} type="text" className={styles.input} placeholder="비밀번호"/>
                 <button className={styles.button} type="submit" onClick={onLogin}>로그인 하기</button>
-                <h4>아직 계정이 없으신가요?<Link to="/join">가입하기</Link></h4>
+                <h4>아직 계정이 없으신가요?<Link className={styles.link} to="/join"> 가입하기</Link></h4>
                 <hr />
                 <h4>혹시 비밀번호를 잊으셨나요?</h4>
                 </div>

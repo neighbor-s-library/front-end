@@ -1,0 +1,37 @@
+@value makerGreen, makerDeepGreen from "./common/color.css";
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  width:70%;
+  max-width: 100rem;
+  margin: auto;
+}
+
+ul {
+  padding:0;
+}
+
+button {
+  background-color: makerGreen;
+  font-weight:bold;
+  border:none;
+  border-radius: 4px;
+}
+
+h1 { 
+  color: makerDeepGreen;
+}
+h2 { 
+  color: makerDeepGreen;
+}
+h3 { 
+  color: makerDeepGreen;
+}
+h4 { 
+  color: makerDeepGreen;
+}

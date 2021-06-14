@@ -3,10 +3,11 @@ import styles from "./book.module.css";
 
 const Book = ({book, id}) => {
     return (
-        <Link to={`/detail/${id}`}>
+        <Link className={styles.link} to={`/detail/${id}`}>
             <div className={styles.book}>
                 <img className={styles.image} src={book.image} />
-                <h3 className={styles.title}>{book.title}</h3>
+                <li className={styles.title}>{book.title}</li>
+                <li > 대여 가능 기간 : 12일</li>
             </div>
         </Link>
     )

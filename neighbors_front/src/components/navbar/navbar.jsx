@@ -18,7 +18,7 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <div>
                 <img className={styles.img} src="" />
-                <Link to="/"><i className={styles.title}>이웃집 도서관</i></Link>
+                <Link to="/"><i className={styles.title}>Hello book</i></Link>
             </div>
             <div>
                 

@@ -1,3 +1,6 @@
+@value makerPink, makerDeepOrange, makerGreen from "../../common/color.css";
+@value makerXSmall from "../../common/size.css";
+
 hr {
   width: 80%;
 }
@@ -8,7 +11,6 @@ hr {
 
 .container {
   display: flex;
-  background-color: palevioletred;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -21,7 +23,8 @@ hr {
 }
 .loginForm {
   margin:2rem;
-  background-color: papayawhip;
+  background-color:makerPink;
+  border-radius: 4px;
   width: 40%;
   height: 40rem;
 }
@@ -45,6 +48,11 @@ hr {
 }
 
 .button {
+  font-size: makerXSmall;
   width: 80%;
   height: 3rem
+}
+
+.link {
+  color: makerDeepOrange;
 }

@@ -42,7 +42,7 @@ const Join = () => {
                 </div>
                 <button className={styles.button} type="submit" onClick={onJoin}>가입 하기</button>
                 <hr />
-                <h4>이미 계정이 있으신가요?<Link to="/login">로그인 하기</Link></h4>
+                <h4>이미 계정이 있으신가요?<Link className={styles.link} to="/login"> 로그인 하기</Link></h4>
                 </div>
             </form>
         </div>

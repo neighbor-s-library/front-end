@@ -1,7 +1,6 @@
 .lists {
     display: flex;
-    background-color: peru;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     text-align: center;
 }
