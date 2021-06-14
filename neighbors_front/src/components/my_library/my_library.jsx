@@ -32,7 +32,7 @@ const MyLibrary = () => {
 
     return (
         <div className={styles.myLibrary}>
-            <h1>내 서재</h1>
+            <h1>내 서재 관리</h1>
             {myData.map((book,index) => {
                 return <MyLibraryForm key={index} book={book} />
             })}

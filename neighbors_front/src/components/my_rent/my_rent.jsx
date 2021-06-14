@@ -32,7 +32,7 @@ const MyRent = () => {
 
     return (
         <div className={styles.myRent}>
-            <h1>내가 빌린 내역</h1>
+            <h1>내가 빌려준 내역</h1>
             {myData.map((book,index) => {
                 return <MyLibraryForm key={index} book={book} />
             })}

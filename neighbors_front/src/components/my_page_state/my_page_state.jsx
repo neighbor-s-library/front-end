@@ -29,14 +29,15 @@ const MyPageState = () => {
 
     return (
         <div className={styles.state}>
-            <h1>내 서재</h1>
+            <h1>전체 보기</h1>
+            <h2>내 서재</h2>
             <div className={styles.myBooks}>
                 {myData.map((book,index) => {
                     return <Book key={index} book={book}></Book>
                 })}
             </div>
             <hr className={styles.middleLine}/>
-            <h1>대여한 책</h1>
+            <h2>대여한 책</h2>
             <div className={styles.myBooks}>
                 {myData.map((book,index) => {
                     return <Book key={index} book={book}></Book>
