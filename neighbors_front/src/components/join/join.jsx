@@ -1,14 +1,16 @@
 import {useRef} from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
 import styles from "./join.module.css";
+
 
 const Join = () => {
     const emailRef = useRef();
     const password1Ref = useRef();
     const password2Ref = useRef();
-    const nameRef = useRef();
-    const phoneNumRef = useRef();
-
+    const nicknameRef = useRef();
+    const telRef = useRef();
+    const addressRef = useRef();
     //앞으로 해야될 일
     //1, 핸드폰 인증 하기 - 인증을 통해 boolean 타입으로 유효성검사 하자
 
@@ -20,11 +22,14 @@ const Join = () => {
 
         const join = {
             email: emailRef.current.value || "",
-            password: password1Ref.current.value || "",
-            name: nameRef.current.value || "",
-            phoneNum: phoneNumRef.current.value || "",
+            address: addressRef.current.value || "",
+            nickname: nicknameRef.current.value || "",
+            inputpw: password1Ref.current.value || "",
+            tel: telRef.current.value || "",
         }
         console.log(join);
+
+        aixos.post()
     }
     return(
         <div className={styles.container}>
@@ -34,8 +39,9 @@ const Join = () => {
                 <input ref={emailRef} type="text" className={styles.input} placeholder="이메일"/>
                 <input ref={password1Ref} type="text" className={styles.input} placeholder="비밀번호"/>
                 <input ref={password2Ref} type="text" className={styles.input} placeholder="비밀번호 확인"/>
-                <input ref={nameRef} type="text" className={styles.input} placeholder="닉네임"/>
-                <input ref={phoneNumRef} type="text" className={styles.input} placeholder="전화번호"/>
+                <input ref={nicknameRef} type="text" className={styles.input} placeholder="닉네임"/>
+                <input ref={addressRef} type="text" className={styles.input} placeholder="주소"/>
+                <input ref={telRef} type="text" className={styles.input} placeholder="전화번호"/>
                 <div className={styles.auth}>
                     <input type="text" className={styles.input} placeholder="인증 번호"/>
                     <button className={styles.authButton}>인증 하기</button>
