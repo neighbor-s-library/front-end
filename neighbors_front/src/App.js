@@ -9,7 +9,7 @@ import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
 import AroundLibrary from "./components/around_library/around_library";
 
-function App() {
+function App({ authService }) {
   const data = [
     {
       "id" : "1",
@@ -84,7 +84,7 @@ function App() {
           <MainPage data={data} />
         </Route>
         <Route exact path="/login">
-          <Login />
+          <Login authService={authService}/>
         </Route>
         <Route exact path="/join">
           <Join />
