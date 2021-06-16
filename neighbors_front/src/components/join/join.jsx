@@ -1,6 +1,6 @@
 import {useRef} from "react";
 import {Link} from "react-router-dom";
-import axios from "axios";
+import aixos from "axios";
 import styles from "./join.module.css";
 
 
@@ -27,10 +27,13 @@ const Join = () => {
             inputpw: password1Ref.current.value || "",
             tel: telRef.current.value || "",
         }
-        console.log(join);
 
-        aixos.post()
+        aixos.post("http://localhost:8080/hellobook/join", join)
+        .then((response) => {
+            console.log(response);
+        })
     }
+
     return(
         <div className={styles.container}>
             <form className={styles.loginForm}>
