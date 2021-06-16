@@ -1,13 +1,20 @@
 import styles from "./login.module.css"
-import {useRef} from "react";
-import {Link} from "react-router-dom";
+import {useRef, useEffect} from "react";
+import {Link, useHistory} from "react-router-dom";
 
 const Login = ({ authService }) => {
+    const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    //해야할 일
-    //REST API 메소드 POST를 통해 login 객채 서버로 request 하기
+    const goToMainPage = (userId) => {
+        history.push({
+            pathname: "/",
+            state: {
+                id: userId 
+            }
+        });
+    }
 
     const onLogin = (event) => {
         const login = {
@@ -20,10 +27,19 @@ const Login = ({ authService }) => {
 
     const onGoogleLogin = () => {
         authService
-        .login()
-        .then(console.log())
+        .login("Google")
+        .then((data) => {
+            console.log(data.user.uid);
+            goToMainPage(data.user.uid);
+        });
     }
 
+    useEffect(() => {
+        authService
+        .onAuthChange((user) => {
+            user && goToMainPage(user.uid);
+        })
+    })
     return (
         <div className={styles.container}>
             <form className={styles.form}>

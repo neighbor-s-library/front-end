@@ -1,19 +1,26 @@
 import styles from "./navbar.module.css";
-import {Link} from "react-router-dom";
-import {useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import {useState, useEffect} from "react";
 
-const Navbar = () => {
-    let [login, setLogin] = useState(false);
+const Navbar = ({authService}) => {
+    const history = useHistory();
+    let [checkLogin,setcheckLogin] = useState(false);
 
-    //테스트용 함수 
-    const changeState = () => {
-        if(!login) {
-            setLogin(true);
-        } else {
-            setLogin(false);
-        }
+    const onLogout = () => {
+        authService.logout();
     }
-
+    
+    useEffect(() => {
+        authService.onAuthChange((user) => {
+            if(!user) {
+                history.push("/login");
+                setcheckLogin(false);
+            } else {
+                setcheckLogin(true);
+            }
+        })
+    })
+    
     return(
         <nav className={styles.navbar}>
             <div>
@@ -22,16 +29,15 @@ const Navbar = () => {
             </div>
             <div>
                 
-                {login ?
+                {checkLogin ?
                     <ul className={styles.navbarLists}>
-                        <li onClick={changeState}>로그아웃 테스트</li>
                         <Link to="/registration"><li className={styles.navbarButton}>책 등록 하기</li></Link>
                         <Link to="/around_library"><li className={styles.navbarButton}>내 주변 서재</li></Link>
                         <Link to="/my-page"><li className={styles.navbarButton}>My page</li></Link>
+                        <button onClick={onLogout}>로그 아웃</button>
                     </ul>
                     : 
                     <ul className={styles.navbarLists}>
-                        <li onClick={changeState}>로그인 테스트</li>
                     <Link to="/login"><li className={styles.navbarButton}>로그인 / 회원 가입</li></Link>
                     </ul>
                 }

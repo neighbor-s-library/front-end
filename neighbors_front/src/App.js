@@ -78,7 +78,7 @@ function App({ authService }) {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar authService={authService}/>
       <Switch>
         <Route exact path="/">
           <MainPage data={data} />
