@@ -2,7 +2,7 @@ import styles from "./login.module.css"
 import {useRef, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-const Login = ({ authService }) => {
+const Login = ({ authService , backEndAPI}) => {
     const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -19,10 +19,13 @@ const Login = ({ authService }) => {
     const onLogin = (event) => {
         const login = {
             email: emailRef.current.value || "",
-            password: passwordRef.current.value || ""
+            pw: passwordRef.current.value || ""
         }
         event.preventDefault();
-        console.log(login);
+
+        backEndAPI.login(login).then((response) => {
+            console.log(response);
+        })
     }
 
     const onGoogleLogin = () => {

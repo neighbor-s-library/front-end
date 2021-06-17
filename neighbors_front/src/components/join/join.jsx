@@ -4,7 +4,7 @@ import aixos from "axios";
 import styles from "./join.module.css";
 
 
-const Join = () => {
+const Join = ({ backEndAPI }) => {
     const emailRef = useRef();
     const password1Ref = useRef();
     const password2Ref = useRef();
@@ -19,14 +19,6 @@ const Join = () => {
         if (password1Ref.current.value !== password2Ref.current.value) {
             return console.log("비밀번호가 틀렸습니다");
         }
-
-        // {
-        //     "email" : "이메일",
-        //     "address" : "주소",
-        //     "nickname" : "닉네임",
-        //     "pw" : "비밀번호",
-        //     "tel" : "tel"
-        // }
         const join = {
             email: emailRef.current.value || "",
             address: addressRef.current.value || "",
@@ -34,8 +26,8 @@ const Join = () => {
             pw: password1Ref.current.value || "",
             tel: telRef.current.value || "",
         }
-
-        aixos.post("http://localhost:8080/hellobook/join", join)
+        
+        backEndAPI.join(join)
         .then((response) => {
             console.log(response);
         })
