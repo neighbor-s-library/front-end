@@ -1,11 +1,16 @@
 import styles from "./registration.module.css";
 
-const Registration = ({match}) => {
+const Registration = ({match, imageUploader}) => {
+    
+    const onfileChange = (event) => {
+        console.log(event.target.files[0]);
+    }
+
     return (
         <form className={styles.detail}>
             <div className={styles.container}>
                 <div className={styles.fileBox}>
-                    <input className={styles.file} type="file" />
+                    <input onChange={onfileChange} className={styles.file} type="file" accept="image/*" name="file" />
                 </div>
                 <div className={styles.metadata}>
                     <h2 className={styles.inputTitle}>등록할 정보</h2>

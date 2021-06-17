@@ -9,7 +9,7 @@ import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
 import AroundLibrary from "./components/around_library/around_library";
 
-function App({ authService }) {
+function App({ authService, imageUploader }) {
   const data = [
     {
       "id" : "1",
@@ -94,7 +94,7 @@ function App({ authService }) {
         </Route>
         <Route exact path="/detail/:id" render={(props) => <Detail {...props} />} />
         <Route exact path="/registration">
-          <Registration />
+          <Registration imageUploader={imageUploader}/>
         </Route>
         <Route>
           <AroundLibrary />

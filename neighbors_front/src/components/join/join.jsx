@@ -20,11 +20,18 @@ const Join = () => {
             return console.log("비밀번호가 틀렸습니다");
         }
 
+        // {
+        //     "email" : "이메일",
+        //     "address" : "주소",
+        //     "nickname" : "닉네임",
+        //     "pw" : "비밀번호",
+        //     "tel" : "tel"
+        // }
         const join = {
             email: emailRef.current.value || "",
             address: addressRef.current.value || "",
             nickname: nicknameRef.current.value || "",
-            inputpw: password1Ref.current.value || "",
+            pw: password1Ref.current.value || "",
             tel: telRef.current.value || "",
         }
 
