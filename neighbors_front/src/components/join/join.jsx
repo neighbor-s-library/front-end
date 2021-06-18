@@ -1,10 +1,9 @@
 import {useRef} from "react";
 import {Link} from "react-router-dom";
-import aixos from "axios";
 import styles from "./join.module.css";
 
 
-const Join = ({ backEndAPI }) => {
+const Join = ({ userBackEndAPI }) => {
     const emailRef = useRef();
     const password1Ref = useRef();
     const password2Ref = useRef();
@@ -27,7 +26,7 @@ const Join = ({ backEndAPI }) => {
             tel: telRef.current.value || "",
         }
         
-        backEndAPI.join(join)
+        userBackEndAPI.join(join)
         .then((response) => {
             console.log(response);
         })

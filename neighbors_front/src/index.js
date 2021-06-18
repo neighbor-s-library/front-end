@@ -4,15 +4,18 @@ import './index.css';
 import App from './App';
 import AuthService from "./service/auth_service";
 import ImageUploader from "./service/image_uploader";
-import BackEndAPI from "./service/back_end_api";
+import UserBackEndAPI from "./service/user_back_end_api";
+import BookBackEndAPI from "./service/book_back_end_api";
 
 const authService = new AuthService();
 const imageUploader = new ImageUploader();
-const backEndAPI = new BackEndAPI();
+const userBackEndAPI = new UserBackEndAPI();
+const bookBackEndAPI = new BookBackEndAPI();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App authService={authService} imageUploader={imageUploader} backEndAPI={backEndAPI}/>
+    <App authService={authService} imageUploader={imageUploader} 
+    userBackEndAPI={userBackEndAPI} bookBackEndAPI={bookBackEndAPI}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

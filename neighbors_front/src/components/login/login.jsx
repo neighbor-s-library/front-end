@@ -2,7 +2,7 @@ import styles from "./login.module.css"
 import {useRef, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-const Login = ({ authService , backEndAPI}) => {
+const Login = ({ authService , userBackEndAPI}) => {
     const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -23,7 +23,7 @@ const Login = ({ authService , backEndAPI}) => {
         }
         event.preventDefault();
 
-        backEndAPI.login(login).then((response) => {
+        userBackEndAPI.login(login).then((response) => {
             console.log(response);
         })
     }

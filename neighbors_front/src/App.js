@@ -9,7 +9,7 @@ import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
 import AroundLibrary from "./components/around_library/around_library";
 
-function App({ authService, imageUploader, backEndAPI }) {
+function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI}) {
   const data = [
     {
       "id" : "1",
@@ -84,17 +84,17 @@ function App({ authService, imageUploader, backEndAPI }) {
           <MainPage data={data} />
         </Route>
         <Route exact path="/login">
-          <Login authService={authService} backEndAPI={backEndAPI}/>
+          <Login authService={authService} userBackEndAPI={userBackEndAPI}/>
         </Route>
         <Route exact path="/join">
-          <Join backEndAPI={backEndAPI}/>
+          <Join userBackEndAPI={userBackEndAPI}/>
         </Route>
         <Route exact path="/my-page">
           <MyPage />
         </Route>
         <Route exact path="/detail/:id" render={(props) => <Detail {...props} />} />
         <Route exact path="/registration">
-          <Registration imageUploader={imageUploader}/>
+          <Registration imageUploader={imageUploader} bookBackEndAPI={bookBackEndAPI}/>
         </Route>
         <Route>
           <AroundLibrary />

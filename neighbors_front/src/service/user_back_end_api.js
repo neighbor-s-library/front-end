@@ -1,6 +1,6 @@
 import axios from "axios"
 
-class BackEndAPI {
+class UserBackEndAPI {
   async login(loginObject) {
     try{
       const data = await axios.post("http://localhost:8080/hellobook/login", loginObject);
@@ -18,6 +18,8 @@ class BackEndAPI {
       return  error;
     }
   }
+
+  
 }
 
-export default BackEndAPI;
+export default UserBackEndAPI;
