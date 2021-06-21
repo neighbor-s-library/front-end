@@ -25,8 +25,7 @@ const Login = ({ authService , userBackEndAPI, setUserData}) => {
 
         userBackEndAPI.login(login).then((response) => {
             console.log("로그인 성공")
-            console.log(response);
-            // setUserData(response.data.item)
+            setUserData(response.data.item)
         })
     }
 
