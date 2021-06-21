@@ -2,7 +2,7 @@ import styles from "./login.module.css"
 import {useRef, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-const Login = ({ authService , userBackEndAPI}) => {
+const Login = ({ authService , userBackEndAPI, setUserData}) => {
     const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -24,7 +24,9 @@ const Login = ({ authService , userBackEndAPI}) => {
         event.preventDefault();
 
         userBackEndAPI.login(login).then((response) => {
+            console.log("로그인 성공")
             console.log(response);
+            // setUserData(response.data.item)
         })
     }
 

@@ -8,83 +8,20 @@ import MyPage from "./components/my_page/my_page";
 import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
 import AroundLibrary from "./components/around_library/around_library";
+import { useState } from 'react';
 
-function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI}) {
-  const data = [
-    {
-      "id" : "1",
-      "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "2"  ,
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "3" , 
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "4"  ,
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "5"  ,
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "6" , 
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "7" , 
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "8"  ,
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  {
-    "id" : "9",  
-    "title" : "나미야 잡화점",
-      "author" : "김영일",
-      "publishing" : "출판사",
-      "image" : "/images/book.png"
-  },
-  ]
+function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
+  const [userData, setUserData] = useState({});
 
   return (
     <Router>
       <Navbar authService={authService}/>
       <Switch>
         <Route exact path="/">
-          <MainPage data={data} />
+          <MainPage bookBackEndAPI={bookBackEndAPI}/>
         </Route>
         <Route exact path="/login">
-          <Login authService={authService} userBackEndAPI={userBackEndAPI}/>
+          <Login authService={authService} userBackEndAPI={userBackEndAPI} setUserData={setUserData}/>
         </Route>
         <Route exact path="/join">
           <Join userBackEndAPI={userBackEndAPI}/>
@@ -92,9 +29,9 @@ function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI}) {
         <Route exact path="/my-page">
           <MyPage />
         </Route>
-        <Route exact path="/detail/:id" render={(props) => <Detail {...props} />} />
+        <Route exact path="/detail/:id" render={(props) => <Detail {...props} bookBackEndAPI={bookBackEndAPI}/>} />
         <Route exact path="/registration">
-          <Registration imageUploader={imageUploader} bookBackEndAPI={bookBackEndAPI}/>
+          <Registration imageUploader={imageUploader} bookBackEndAPI={bookBackEndAPI} userData={userData} />
         </Route>
         <Route>
           <AroundLibrary />

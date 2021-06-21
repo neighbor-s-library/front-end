@@ -1,7 +1,7 @@
 import styles from "./registration.module.css";
 import { useState, useRef } from "react";
 
-const Registration = ({match, imageUploader, bookBackEndAPI }) => {
+const Registration = ({match, imageUploader, bookBackEndAPI, userData }) => {
     //add book form.
     const titleRef = useRef();
     const writerRef = useRef();
@@ -37,10 +37,11 @@ const Registration = ({match, imageUploader, bookBackEndAPI }) => {
             pub : pubRef.current.value || "",
             detail : detailRef.current.value || "",
             genre : genreRef.current.value || "",
-            img : uploaded.url
+            img : uploaded.url,
+            user_id: userData.id
         }
-        console.log(book);
 
+        console.log(book);
         bookBackEndAPI.addBook(book)
         .then((response) => {
             console.log(response);

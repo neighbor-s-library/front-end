@@ -1,13 +1,13 @@
 import {Link} from "react-router-dom";
 import styles from "./book.module.css";
 
-const Book = ({book, id}) => {
+const Book = ({book}) => {
     return (
-        <Link className={styles.link} to={`/detail/${id}`}>
+        <Link className={styles.link} to={`/detail/${book.id}`}>
             <div className={styles.book}>
-                <img className={styles.image} src={book.image} />
+                <img className={styles.image} src={book.img} />
                 <li className={styles.title}>{book.title}</li>
-                <li > 대여 가능 기간 : 12일</li>
+                <li >{book.created_at}</li>
             </div>
         </Link>
     )
