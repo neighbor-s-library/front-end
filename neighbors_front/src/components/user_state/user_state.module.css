@@ -1,0 +1,13 @@
+.userState {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nickname {
+  margin:10px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}

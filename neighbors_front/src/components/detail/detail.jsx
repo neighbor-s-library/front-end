@@ -19,7 +19,7 @@ const Detail = ({match, bookBackEndAPI}) => {
         <form className={styles.detail}>
             <h1 className={styles.title}>{bookDetail.title}</h1>
             <div className={styles.container}>
-                    <img className={styles.img} src={bookDetail.img} />
+                    <img className={styles.img} src={bookDetail.img} alt="사진" />
                 <div className={styles.metadatas}>
                     <h3 className={styles.metadata}>{bookDetail.nickname}</h3>
                     <h3 className={styles.metadata}>{bookDetail.writer}</h3>

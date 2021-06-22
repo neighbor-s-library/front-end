@@ -2,7 +2,7 @@ import styles from "./login.module.css"
 import {useRef, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-const Login = ({ authService , userBackEndAPI, setUserData}) => {
+const Login = ({ authService , userBackEndAPI, setUser }) => {
     const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -24,8 +24,11 @@ const Login = ({ authService , userBackEndAPI, setUserData}) => {
         event.preventDefault();
 
         userBackEndAPI.login(login).then((response) => {
-            console.log("로그인 성공")
-            setUserData(response.data.item)
+            const user = response.data.item;
+            window.localStorage.setItem(user.nickname,JSON.stringify(user.token));
+            window.localStorage.setItem("id",user.id);
+            goToMainPage(user.id);
+            setUser(user.id);
         })
     }
 
@@ -38,12 +41,12 @@ const Login = ({ authService , userBackEndAPI, setUserData}) => {
         });
     }
 
-    useEffect(() => {
-        authService
-        .onAuthChange((user) => {
-            user && goToMainPage(user.uid);
-        })
-    })
+    // useEffect(() => {
+    //     authService
+    //     .onAuthChange((user) => {
+    //         user && goToMainPage(user.uid);
+    //     })
+    // })
     return (
         <div className={styles.container}>
             <form className={styles.form}>

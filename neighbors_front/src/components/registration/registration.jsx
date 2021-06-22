@@ -1,15 +1,13 @@
 import styles from "./registration.module.css";
 import { useState, useRef } from "react";
 
-const Registration = ({match, imageUploader, bookBackEndAPI, userData }) => {
+const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
     //add book form.
     const titleRef = useRef();
     const writerRef = useRef();
     const pubRef = useRef();
     const detailRef = useRef();
     const genreRef = useRef();
-    const imgRef = useRef();
-
     const inputRef = useRef();
     const [viewImage, setViewImage] = useState("");
     const [saveImage, setSaveImage] = useState();
@@ -38,7 +36,7 @@ const Registration = ({match, imageUploader, bookBackEndAPI, userData }) => {
             detail : detailRef.current.value || "",
             genre : genreRef.current.value || "",
             img : uploaded.url,
-            user_id: userData.id
+            user_id: user
         }
 
         console.log(book);
@@ -53,7 +51,7 @@ const Registration = ({match, imageUploader, bookBackEndAPI, userData }) => {
             <div className={styles.container}>
                 {viewImage ?
                     <div className={styles.fileBox} onClick={onImageClick}>
-                        <img className={styles.image} src={viewImage}></img>
+                        <img className={styles.image} src={viewImage} alt="사진"></img>
                         <input ref={inputRef} onChange={onFileChange} className={styles.file} type="file" accept="image/*" name="file" />
                     </div>
                     :

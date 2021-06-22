@@ -1,5 +1,5 @@
 import './App.module.css';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import MainPage from "./components/main_page/main_page";
 import Login from "./components/login/login";
@@ -7,21 +7,28 @@ import Join from "./components/join/join";
 import MyPage from "./components/my_page/my_page";
 import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
-import AroundLibrary from "./components/around_library/around_library";
-import { useState } from 'react';
+import UserState from "./components/user_state/user_state";
+import { useState, useEffect } from 'react';
+
 
 function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
-  const [userData, setUserData] = useState({});
+  const [user, setUser] = useState({});
+  const id = window.localStorage.getItem("id");
+  
+  useEffect(() => {
+    setUser(id);
+  },[id])
 
   return (
     <Router>
-      <Navbar authService={authService}/>
+      {user? <UserState authService={authService} setUser={setUser}/> : null}
+      <Navbar authService={authService} user={user}/>
       <Switch>
         <Route exact path="/">
           <MainPage bookBackEndAPI={bookBackEndAPI}/>
         </Route>
         <Route exact path="/login">
-          <Login authService={authService} userBackEndAPI={userBackEndAPI} setUserData={setUserData}/>
+          <Login authService={authService} userBackEndAPI={userBackEndAPI} setUser={setUser}/>
         </Route>
         <Route exact path="/join">
           <Join userBackEndAPI={userBackEndAPI}/>
@@ -31,10 +38,7 @@ function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
         </Route>
         <Route exact path="/detail/:id" render={(props) => <Detail {...props} bookBackEndAPI={bookBackEndAPI}/>} />
         <Route exact path="/registration">
-          <Registration imageUploader={imageUploader} bookBackEndAPI={bookBackEndAPI} userData={userData} />
-        </Route>
-        <Route>
-          <AroundLibrary />
+          <Registration imageUploader={imageUploader} bookBackEndAPI={bookBackEndAPI} user={user}/>
         </Route>
       </Switch>
     </Router>    

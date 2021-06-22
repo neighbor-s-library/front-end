@@ -27,6 +27,15 @@ class BookBackEndAPI {
       return error;
     }
   }
+
+  async searchBooks(keyword) {
+    try {
+      const data = await axios.get(`http://localhost:8080/hellobook/books/?keyword=${keyword}`)
+      return data;
+    } catch(error) {
+      return error;
+    }
+  }
 }
 
 export default BookBackEndAPI;
