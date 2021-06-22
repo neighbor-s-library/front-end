@@ -12,12 +12,7 @@ import { useState, useEffect } from 'react';
 
 
 function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
-  const [user, setUser] = useState({});
-  const id = window.localStorage.getItem("id");
-  
-  useEffect(() => {
-    setUser(id);
-  },[id])
+  const [user, setUser] = useState(window.localStorage.getItem("id"));
 
   return (
     <Router>
@@ -34,7 +29,7 @@ function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
           <Join userBackEndAPI={userBackEndAPI}/>
         </Route>
         <Route exact path="/my-page">
-          <MyPage />
+          <MyPage bookBackEndAPI={bookBackEndAPI} user={user}/>
         </Route>
         <Route exact path="/detail/:id" render={(props) => <Detail {...props} bookBackEndAPI={bookBackEndAPI}/>} />
         <Route exact path="/registration">

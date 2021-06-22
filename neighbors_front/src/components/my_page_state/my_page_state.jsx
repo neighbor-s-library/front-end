@@ -1,31 +1,22 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import styles from "./my_page_state.module.css";
 import Book from "../book/book";
 
-const MyPageState = () => {
-    const [myData, setMyData] = useState([
-        {
-            "id" : "1",
-            "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-          "id" : "2"  ,
-          "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-        {
-          "id" : "3" , 
-          "title" : "나미야 잡화점",
-            "author" : "김영일",
-            "publishing" : "출판사",
-            "image" : "/images/book.png"
-        },
-    ]);
+const MyPageState = ({bookBackEndAPI, user}) => {
+    const [myData, setMyData] = useState([]);
+
+    const searchUserBooks = () => {
+        console.log(user)
+        bookBackEndAPI.searchUserBooks(user)
+        .then((response) => {
+            const books = response.data.item;
+            setMyData(books);
+        })
+    }
+
+    useEffect(() => {
+        searchUserBooks();
+    },[])
 
     return (
         <div className={styles.state}>

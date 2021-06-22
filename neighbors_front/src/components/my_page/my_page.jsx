@@ -6,13 +6,13 @@ import MyLibrary from "../my_library/my_library";
 import MyRent from "../my_rent/my_rent";
 import Mylend from "../my_lend/my_lend";
 
-const MyPage = () => {
+const MyPage = ({bookBackEndAPI, user}) => {
     const [myState, setMyState] = useState(1);
 
     return (
         <div className={styles.myPage}>
             <SideBarMenu set={setMyState}/>
-            {myState === 1 ? <MyPageState /> : null}
+            {myState === 1 ? <MyPageState bookBackEndAPI={bookBackEndAPI} user={user}/> : null}
             {myState === 2 ? <MyLibrary /> : null}
             {myState === 3 ? <MyRent /> : null}
             {myState === 4 ? <Mylend /> : null}

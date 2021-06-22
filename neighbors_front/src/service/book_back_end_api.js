@@ -36,6 +36,15 @@ class BookBackEndAPI {
       return error;
     }
   }
+
+  async searchUserBooks(id) {
+    try {
+      const data = await axios.get(`http://localhost:8080/hellobook/users/books?user_id=${id}`)
+      return data;
+    } catch(error) {
+      return error;
+    }
+  }
 }
 
 export default BookBackEndAPI;
