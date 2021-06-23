@@ -46,14 +46,14 @@ class BookBackEndAPI {
     }
   }
 
-  async searchUserRend(id) {
-    try {
-      const data = await axios.get(`/hellobook/books?rent=true&user_id=${id}`)
-      return data;
-    } catch(error) {
-      return error;
-    }
-  }
+  // async searchUserRend(id) {
+  //   try {
+  //     const data = await axios.get(`/hellobook/books?rent=true&user_id=${id}`)
+  //     return data;
+  //   } catch(error) {
+  //     return error;
+  //   }
+  // }
   
 }
 

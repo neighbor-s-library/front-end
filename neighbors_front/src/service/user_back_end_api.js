@@ -7,7 +7,7 @@ class UserBackEndAPI {
       const data = await axios.post("/hellobook/login", loginObject);
       return data;
     } catch(error) {
-      return error;
+      return "error";
     }
   }
 
@@ -16,7 +16,7 @@ class UserBackEndAPI {
       const data = await axios.post("/hellobook/join", joinObject);
       return data;
     } catch(error) {
-      return  error;
+      return "error";
     }
   }
 
@@ -25,7 +25,7 @@ class UserBackEndAPI {
       const data = await axios.put("/hellobook/users",changeObject, token);
       return data
     } catch(error) {
-      return error;
+      return "error";
     }
   }
 
@@ -34,7 +34,7 @@ class UserBackEndAPI {
       const data = await axios.get(`/hellobook/users/${id}`, token)
       return data
     } catch(error) {
-      return error;
+      return "error";
     }
   }
 }

@@ -1,9 +1,10 @@
 import {useRef} from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import styles from "./join.module.css";
 
 
 const Join = ({ userBackEndAPI }) => {
+    const history = useHistory();
     const emailRef = useRef();
     const password1Ref = useRef();
     const password2Ref = useRef();
@@ -28,7 +29,10 @@ const Join = ({ userBackEndAPI }) => {
         
         userBackEndAPI.join(join)
         .then((response) => {
-            console.log(response);
+            if(response === "error") {
+                return alert("회원정보를 정확하게 넣어주세요");
+            }
+            history.push("/login");
         })
     }
 

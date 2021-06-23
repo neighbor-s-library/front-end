@@ -13,15 +13,14 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user }) => {
     const [myRent, setMyRent] = useState([]);
     const [myLend, setMylend] = useState([]);
 
+    
     const searchUserBooks = () => {
         bookBackEndAPI.searchUserBooks(user)
         .then((response) => {
             const books = response.data.item;
-            console.log(books)
             setMyLibrary(books);
         })
     }
-
 
     useEffect(() => {
         searchUserBooks();

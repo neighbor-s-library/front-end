@@ -17,7 +17,6 @@ const SideBarMenu = ({set, user, userBackEndAPI, myLibrary}) => {
         })
     }
 
-    console.log(userDetail)
     const onSubmit = (event) => {
         const flag = event.target.value;
         set(flag);
