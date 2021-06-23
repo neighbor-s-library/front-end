@@ -39,12 +39,22 @@ class BookBackEndAPI {
 
   async searchUserBooks(id) {
     try {
-      const data = await axios.get(`http://localhost:8080/hellobook/users/books?user_id=${id}`)
+      const data = await axios.get(`/hellobook/users/books?user_id=${id}`)
       return data;
     } catch(error) {
       return error;
     }
   }
+
+  async searchUserRend(id) {
+    try {
+      const data = await axios.get(`/hellobook/books?rent=true&user_id=${id}`)
+      return data;
+    } catch(error) {
+      return error;
+    }
+  }
+  
 }
 
 export default BookBackEndAPI;

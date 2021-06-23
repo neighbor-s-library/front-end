@@ -8,7 +8,7 @@ import MyPage from "./components/my_page/my_page";
 import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
 import UserState from "./components/user_state/user_state";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
@@ -29,7 +29,7 @@ function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
           <Join userBackEndAPI={userBackEndAPI}/>
         </Route>
         <Route exact path="/my-page">
-          <MyPage bookBackEndAPI={bookBackEndAPI} user={user}/>
+          <MyPage bookBackEndAPI={bookBackEndAPI} user={user} userBackEndAPI={userBackEndAPI}/>
         </Route>
         <Route exact path="/detail/:id" render={(props) => <Detail {...props} bookBackEndAPI={bookBackEndAPI}/>} />
         <Route exact path="/registration">

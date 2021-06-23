@@ -25,7 +25,7 @@ const Login = ({ authService , userBackEndAPI, setUser }) => {
 
         userBackEndAPI.login(login).then((response) => {
             const user = response.data.item;
-            window.localStorage.setItem(user.nickname,JSON.stringify(user.token));
+            window.localStorage.setItem(user.id,user.token);
             window.localStorage.setItem("id",user.id);
             goToMainPage(user.id);
             setUser(user.id);
