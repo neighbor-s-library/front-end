@@ -4,3 +4,13 @@
     justify-content: center;
     text-align: center;
 }
+
+.mainPageTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    height: 2rem;
+}

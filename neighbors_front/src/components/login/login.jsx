@@ -23,7 +23,10 @@ const Login = ({ authService , userBackEndAPI, setUser }) => {
         }
         event.preventDefault();
 
-        userBackEndAPI.login(login).then((response) => {
+        userBackEndAPI.login(login).then((error,response) => {
+            if(error) {
+                return alert("회원정보가 일치하지 않습니다.");
+            }
             const user = response.data.item;
             window.localStorage.setItem(user.id,user.token);
             window.localStorage.setItem("id",user.id);

@@ -13,14 +13,14 @@ import { useState } from 'react';
 
 function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
   const [user, setUser] = useState(window.localStorage.getItem("id"));
-
+  
   return (
     <Router>
       {user? <UserState authService={authService} setUser={setUser}/> : null}
-      <Navbar authService={authService} user={user}/>
+      <Navbar authService={authService} user={user} />
       <Switch>
         <Route exact path="/">
-          <MainPage bookBackEndAPI={bookBackEndAPI}/>
+          <MainPage bookBackEndAPI={bookBackEndAPI} />
         </Route>
         <Route exact path="/login">
           <Login authService={authService} userBackEndAPI={userBackEndAPI} setUser={setUser}/>

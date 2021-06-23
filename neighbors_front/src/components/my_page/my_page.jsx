@@ -22,7 +22,6 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user }) => {
         })
     }
 
-    // const searchUser
 
     useEffect(() => {
         searchUserBooks();
@@ -30,7 +29,7 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user }) => {
 
     return (
         <div className={styles.myPage}>
-            <SideBarMenu set={setMyState} user={user} userBackEndAPI={userBackEndAPI}/>
+            <SideBarMenu set={setMyState} user={user} userBackEndAPI={userBackEndAPI} myLibrary={myLibrary}/>
             {myState === 1 ? <MyPageState bookBackEndAPI={bookBackEndAPI} user={user} myLibrary={myLibrary}/> : null}
             {myState === 2 ? <MyLibrary bookBackEndAPI={bookBackEndAPI} myLibrary={myLibrary}/> : null}
             {myState === 3 ? <MyRent bookBackEndAPI={bookBackEndAPI} /> : null}

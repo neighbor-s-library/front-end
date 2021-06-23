@@ -2,19 +2,32 @@ import styles from "./main_page.module.css"
 import Book from "../book/book";
 import Search from "../search/search";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { hydrate } from "react-dom";
 
-const MainPage = ({ bookBackEndAPI, history }) => {
+const MainPage = ({ bookBackEndAPI }) => {
     const [allBooks,setAllBooks] = useState([]);
-    const [pageCount,setPageCount] = useState(1);
+    let [pageCount,setPageCount] = useState(1);
 
-    const viewBooks = () =>{
+    const viewBooks = () => {
         bookBackEndAPI.allLoadBooks(pageCount)
         .then((response) => {
         const items = response.data.item;
         setAllBooks(items);
         })
+    }
+
+    const plusBooks = (plusCount) => {
+        bookBackEndAPI.allLoadBooks(plusCount)
+        .then((response) => {
+        const items = response.data.item;
+        setAllBooks([...allBooks, ...items]);
+        })
+    }
+
+    const onPlusView = () => {
+        if(pageCount !== 3) {
+            setPageCount(pageCount++);
+            plusBooks(pageCount);
+        }
     }
     
     useEffect(() => {
@@ -24,7 +37,10 @@ const MainPage = ({ bookBackEndAPI, history }) => {
     return(
         <>
         <Search bookBackEndAPI={bookBackEndAPI} setAllBooks={setAllBooks}/>
-        <h1>전체 책 목록</h1>
+        <div className={styles.mainPageTitle}>
+            <h1>전체 책 목록</h1>
+            <button className={styles.button} onClick={onPlusView}>더 보기</button>
+        </div>
         {allBooks[0] ? 
             <div className={styles.lists}>
             {allBooks.map((book,index) => {
@@ -36,7 +52,6 @@ const MainPage = ({ bookBackEndAPI, history }) => {
                 <h1>검색목록에 없습니다.</h1>
             </div>
         } 
-        
         </>
     )
 }

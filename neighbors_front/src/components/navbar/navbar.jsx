@@ -2,10 +2,13 @@ import styles from "./navbar.module.css";
 import {Link, useHistory} from "react-router-dom";
 import {useState, useEffect} from "react";
 
-const Navbar = ({ authService, user }) => {
+const Navbar = ({ authService, user}) => {
     const [login, setLogin] = useState();
     const history = useHistory();
 
+    const onChange = () => {
+        
+    }
 
     useEffect(() => { 
             setLogin(user);
@@ -23,7 +26,7 @@ const Navbar = ({ authService, user }) => {
         <nav className={styles.navbar}>
             <div className={styles.logo}>
                 {/* <img className={styles.img} src="/images/logo.png" alt="Main logo" /> */}
-                <Link to="/"><i className={styles.title}>Hello book</i></Link>
+                <Link to="/"><i className={styles.title} onClick={onChange}>Hello book</i></Link>
             </div>
             <div>
                 {login ?

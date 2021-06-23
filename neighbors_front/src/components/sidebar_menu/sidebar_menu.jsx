@@ -1,7 +1,7 @@
 import styles from "./sidebar_menu.module.css"
 import { useState, useEffect } from "react";
 
-const SideBarMenu = ({set, user, userBackEndAPI}) => {
+const SideBarMenu = ({set, user, userBackEndAPI, myLibrary}) => {
     const [userDetail, setUserDetail] = useState({});
 
     const loadUserDetail = () => {
@@ -32,7 +32,7 @@ const SideBarMenu = ({set, user, userBackEndAPI}) => {
             <img className={styles.avatar} src="/images/book.png" alt="avatar" />
             <div className={styles.userDatas} >
                 <h5 className={styles.data}>{userDetail.nickname}</h5>
-                <h5 className={styles.data}>등록한 책 00권 (00권 대여중)</h5>
+                <h5 className={styles.data}>등록한 책 {myLibrary.length}권 (00권 대여중)</h5>
                 <h5 className={styles.data}>대여한 책 00권</h5>
                 <h5 className={styles.data}>포인트 :{userDetail.point}pt </h5>
             </div>
