@@ -3,7 +3,7 @@ import axios from "axios";
 class BookBackEndAPI {
   async addBook(addBooks) {
     try {
-      const data = await axios.post("http://localhost:8080/hellobook/books", addBooks)
+      const data = await axios.post("http://3.36.109.233:8080/hellobook/books", addBooks)
       return data;
     } catch(error) {
       return error;
@@ -12,7 +12,7 @@ class BookBackEndAPI {
 
   async allLoadBooks(page_number) {
     try {
-      const data = await axios.get(`http://localhost:8080/hellobook/books?page=${page_number}`)
+      const data = await axios.get(`http://3.36.109.233:8080/hellobook/books?page=${page_number}`)
       return data;
     } catch(error) {
       return error;
@@ -21,7 +21,7 @@ class BookBackEndAPI {
 
   async bookDetail(id) {
     try {
-      const data = await axios.get(`http://localhost:8080/hellobook/books/${id}`);
+      const data = await axios.get(`http://3.36.109.233:8080/hellobook/books/${id}`);
       return data;
     } catch(error) {
       return error;
@@ -30,7 +30,7 @@ class BookBackEndAPI {
 
   async searchBooks(keyword) {
     try {
-      const data = await axios.get(`http://localhost:8080/hellobook/books/?keyword=${keyword}`)
+      const data = await axios.get(`http://3.36.109.233:8080/hellobook/books/?keyword=${keyword}`)
       return data;
     } catch(error) {
       return error;
@@ -39,7 +39,7 @@ class BookBackEndAPI {
 
   async searchUserBooks(id) {
     try {
-      const data = await axios.get(`http://localhost:8080/hellobook/users/books?user_id=${id}`)
+      const data = await axios.get(`http://3.36.109.233:8080/hellobook/users/books?user_id=${id}`)
       return data;
     } catch(error) {
       return error;
