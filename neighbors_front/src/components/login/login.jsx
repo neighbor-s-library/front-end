@@ -2,7 +2,7 @@ import styles from "./login.module.css"
 import {useRef, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-const Login = ({ authService , userBackEndAPI, setUser }) => {
+const Login = ({ authService , userBackEndAPI, setUser, setNickname }) => {
     const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -27,12 +27,13 @@ const Login = ({ authService , userBackEndAPI, setUser }) => {
             if(response === "error") {
                 return alert("회원정보가 일치하지 않습니다.");
             }
-            const user = response.data.item;
-            console.log(user)
+            const user = response.data;
+            console.log(response)
             window.localStorage.setItem(user.id,user.token);
             window.localStorage.setItem("id",user.id);
             goToMainPage(user.id);
             setUser(user.id);
+            setNickname(user.nickname);
         })
     }
 

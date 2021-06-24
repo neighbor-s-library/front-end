@@ -8,22 +8,31 @@ import MyPage from "./components/my_page/my_page";
 import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
 import UserState from "./components/user_state/user_state";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
   const [user, setUser] = useState(window.localStorage.getItem("id"));
-  
+  const [nickname,setNickname] = useState("");
+
+  // const renderUserdata = () => {
+  //   setNickname(nickname);
+  // }
+
+  // useEffect(() => {
+  //   renderUserdata();
+  // })
+
   return (
     <Router>
-      {user? <UserState authService={authService} setUser={setUser}/> : null}
+      {user? <UserState authService={authService} setUser={setUser} nickname={nickname}/> : null}
       <Navbar authService={authService} user={user} />
       <Switch>
         <Route exact path="/">
           <MainPage bookBackEndAPI={bookBackEndAPI} />
         </Route>
         <Route exact path="/login">
-          <Login authService={authService} userBackEndAPI={userBackEndAPI} setUser={setUser}/>
+          <Login authService={authService} userBackEndAPI={userBackEndAPI} setUser={setUser} setNickname={setNickname}/>
         </Route>
         <Route exact path="/join">
           <Join userBackEndAPI={userBackEndAPI}/>
