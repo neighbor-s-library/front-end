@@ -2,7 +2,7 @@ import styles from "./login.module.css"
 import {useRef, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-const Login = ({ authService , userBackEndAPI, setUser, setNickname }) => {
+const Login = ({ authService , userBackEndAPI, setUser ,loadUserDetail }) => {
     const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -24,16 +24,16 @@ const Login = ({ authService , userBackEndAPI, setUser, setNickname }) => {
         event.preventDefault();
 
         userBackEndAPI.login(login).then((response) => {
-            if(response === "error") {
-                return alert("회원정보가 일치하지 않습니다.");
-            }
             const user = response.data;
             console.log(response)
             window.localStorage.setItem(user.id,user.token);
             window.localStorage.setItem("id",user.id);
             goToMainPage(user.id);
             setUser(user.id);
-            setNickname(user.nickname);
+            loadUserDetail();
+        }).catch((error) => {
+            console.log(error);
+            return alert("회원정보가 일치하지 않습니다.");
         })
     }
 
@@ -41,7 +41,6 @@ const Login = ({ authService , userBackEndAPI, setUser, setNickname }) => {
         authService
         .login("Google")
         .then((data) => {
-            console.log(data.user.uid);
             goToMainPage(data.user.uid);
         });
     }

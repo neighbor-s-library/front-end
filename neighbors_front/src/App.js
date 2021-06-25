@@ -12,27 +12,41 @@ import { useState, useEffect } from 'react';
 
 
 function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
+
   const [user, setUser] = useState(window.localStorage.getItem("id"));
-  const [nickname,setNickname] = useState("");
+  const [userDetail, setUserDetail] = useState({});
 
-  // const renderUserdata = () => {
-  //   setNickname(nickname);
-  // }
+    const loadUserDetail = () => {
+        const config = {
+            headers : {
+                Token: window.localStorage.getItem(user)
+            }
+        }
+        userBackEndAPI.userDetail(user, config)
+        .then((response) => {
+            const userData = response.data.item;
+            setUserDetail(userData);
+        }).catch((error) => {
+          console.log(error);
+        })
+    }
 
-  // useEffect(() => {
-  //   renderUserdata();
-  // })
+    useEffect(() => {
+      if(user) {
+        loadUserDetail();
+      }
+    },[])
 
   return (
     <Router>
-      {user? <UserState authService={authService} setUser={setUser} nickname={nickname}/> : null}
+      {user? <UserState authService={authService} setUser={setUser} user={user} userDetail={userDetail} userBackEndAPI={userBackEndAPI}/> : null}
       <Navbar authService={authService} user={user} />
       <Switch>
         <Route exact path="/">
           <MainPage bookBackEndAPI={bookBackEndAPI} />
         </Route>
         <Route exact path="/login">
-          <Login authService={authService} userBackEndAPI={userBackEndAPI} setUser={setUser} setNickname={setNickname}/>
+          <Login authService={authService} userBackEndAPI={userBackEndAPI} setUser={setUser} loadUserDetail={loadUserDetail} />
         </Route>
         <Route exact path="/join">
           <Join userBackEndAPI={userBackEndAPI}/>

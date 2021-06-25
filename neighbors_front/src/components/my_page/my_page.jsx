@@ -7,7 +7,7 @@ import MyRent from "../my_rent/my_rent";
 import Mylend from "../my_lend/my_lend";
 import MyChange from "../my_change/my_change";
 
-const MyPage = ({ userBackEndAPI, bookBackEndAPI, user }) => {
+const MyPage = ({ userBackEndAPI, bookBackEndAPI, user, userDetail}) => {
     const [myState, setMyState] = useState(1);
     const [myLibrary, setMyLibrary] = useState([]);
     const [myRent, setMyRent] = useState([]);
@@ -19,6 +19,8 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user }) => {
         .then((response) => {
             const books = response.data.item;
             setMyLibrary(books);
+        }).catch((error) => {
+            console.log(error);
         })
     }
 
@@ -28,7 +30,7 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user }) => {
 
     return (
         <div className={styles.myPage}>
-            <SideBarMenu set={setMyState} user={user} userBackEndAPI={userBackEndAPI} myLibrary={myLibrary}/>
+            <SideBarMenu set={setMyState} user={user} userBackEndAPI={userBackEndAPI} myLibrary={myLibrary} />
             {myState === 1 ? <MyPageState bookBackEndAPI={bookBackEndAPI} user={user} myLibrary={myLibrary}/> : null}
             {myState === 2 ? <MyLibrary bookBackEndAPI={bookBackEndAPI} myLibrary={myLibrary}/> : null}
             {myState === 3 ? <MyRent bookBackEndAPI={bookBackEndAPI} /> : null}

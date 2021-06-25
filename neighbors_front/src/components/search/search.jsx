@@ -12,6 +12,8 @@ const Search = ({bookBackEndAPI, setAllBooks }) => {
     .then((response) => {
       const searchBooks = response.data.item;
       setAllBooks(searchBooks)
+    }).catch((error) => {
+      console.log(error);
     })
     searchRef.current.value = ""; //검색 후 텍스트 초기화
   }

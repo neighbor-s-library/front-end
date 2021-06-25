@@ -44,3 +44,11 @@ h4 {
 li {
   color: makerDeepGreen;
 }
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}

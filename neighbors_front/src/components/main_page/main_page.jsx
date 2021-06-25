@@ -12,6 +12,8 @@ const MainPage = ({ bookBackEndAPI }) => {
         .then((response) => {
         const items = response.data.item;
         setAllBooks(items);
+        }).catch((error) => {
+            console.log(error);
         })
     }
 
@@ -20,6 +22,8 @@ const MainPage = ({ bookBackEndAPI }) => {
         .then((response) => {
         const items = response.data.item;
         setAllBooks([...allBooks, ...items]);
+        }).catch((error) => {
+            console.log(error);
         })
     }
 

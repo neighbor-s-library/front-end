@@ -1,9 +1,8 @@
-import styles from "./sidebar_menu.module.css"
+import styles from "./sidebar_menu.module.css";
 import { useState, useEffect } from "react";
 
-const SideBarMenu = ({set, user, userBackEndAPI, myLibrary}) => {
+const SideBarMenu = ({set, myLibrary, user, userBackEndAPI }) => {
     const [userDetail, setUserDetail] = useState({});
-
     const loadUserDetail = () => {
         const config = {
             headers : {
@@ -12,8 +11,10 @@ const SideBarMenu = ({set, user, userBackEndAPI, myLibrary}) => {
         }
         userBackEndAPI.userDetail(user, config)
         .then((response) => {
-            const userData = response.data.item
-            setUserDetail(userData);
+                const userData = response.data.item;
+                setUserDetail(userData);
+        }).catch((error) => {
+            console.log(error);
         })
     }
 
