@@ -17,14 +17,16 @@ const Join = ({ userBackEndAPI }) => {
     const onJoin = (event) => {
         event.preventDefault();
         if (password1Ref.current.value !== password2Ref.current.value) {
-            return console.log("비밀번호가 틀렸습니다");
+            return alert("비밀번호를 바르게 입력해주세요.");
+        } else if (!emailRef.current.value.includes("@")) {
+            return alert("이메일을 바르게 입력해주세요.")
         }
         const join = {
-            email: emailRef.current.value || "",
-            address: addressRef.current.value || "",
-            nickname: nicknameRef.current.value || "",
-            pw: password1Ref.current.value || "",
-            tel: telRef.current.value || "",
+            email: emailRef.current.value,
+            address: addressRef.current.value,
+            nickname: nicknameRef.current.value,
+            pw: password1Ref.current.value,
+            tel: telRef.current.value,
         }
         
         userBackEndAPI.join(join)
@@ -32,7 +34,7 @@ const Join = ({ userBackEndAPI }) => {
             history.push("/login");
         }).catch((error) => {
             console.log(error);
-            return alert("회원정보를 정확하게 입력해주세요.")
+            return alert("이미 존재하는 이메일이거나 회원 정보가 바르게 입력되지 않았습니다.")
         })
     }
 

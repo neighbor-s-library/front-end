@@ -1,4 +1,3 @@
-import {useState, useEffect} from "react";
 import styles from "./my_page_state.module.css";
 import Book from "../book/book";
 

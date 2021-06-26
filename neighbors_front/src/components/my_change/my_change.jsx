@@ -2,7 +2,7 @@ import styles from "./my_change.module.css";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
 
-const MyChange = ({ userBackEndAPI, user }) => {
+const MyChange = ({ userBackEndAPI, user, userDetails }) => {
   const history = useHistory();
   const addressRef = useRef();
   const nicknameRef = useRef();
@@ -11,6 +11,25 @@ const MyChange = ({ userBackEndAPI, user }) => {
 
   const onUserChange = (event) => {
     event.preventDefault();
+
+    const transperFromEmail = () => {
+      const userEmail = {
+        email: userDetails.email
+      }
+
+      const config = {
+        headers : {
+          Token : window.localStorage.getItem(user)
+        }
+      }
+      
+      userBackEndAPI.transperFromEmail(userEmail,config)
+      .then((response) => {
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+
     const userChangeData = {
       id: user,
       address: addressRef.current.value,
@@ -27,6 +46,7 @@ const MyChange = ({ userBackEndAPI, user }) => {
     
     userBackEndAPI.change(config, userChangeData)
     .then((response) => {
+      transperFromEmail();
       alert("회원정보 수정 성공");
       history.push("/my-page");
     }).catch((error) => {

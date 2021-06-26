@@ -38,8 +38,8 @@ class BookBackEndAPI {
     }
 
     //대여 목록 조회 - Renter (빌린 목록 조회)
-    async searchUserRent(id,token) {
-        const data = await axios.get(`http://localhost:8080/hellobook/rental/${id}`, token);
+    async searchUserLend(id,token) {
+        const data = await axios.get(`http://localhost:8080/hellobook/renter/${id}`, token);
         return data;
     }
 }
