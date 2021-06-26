@@ -3,6 +3,7 @@
 
 .search {
   display: flex;
+  background: url(./4.jpg) center/cover no-repeat;
   background-color: makerOrange;
   padding:1rem;
   height: 20rem;

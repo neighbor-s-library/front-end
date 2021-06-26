@@ -13,7 +13,39 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user, userDetail}) => {
     const [myRent, setMyRent] = useState([]);
     const [myLend, setMylend] = useState([]);
 
-    
+    //빌린 내역 API
+    const searchUserLend = () => {
+        const config = {
+            headers : {
+                Token : window.localStorage.getItem(user)
+            }
+        }
+        bookBackEndAPI.searchUserRent(user,config)
+        .then((response) => {
+            const books = response.data.output;
+            setMylend(books);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    //빌려준 내역 API
+    const searchUserRent = () => {
+        const config = {
+            headers : {
+                Token : window.localStorage.getItem(user)
+            }
+        }
+        bookBackEndAPI.searchUserRent(user,config)
+        .then((response) => {
+            const books = response.data.output;
+            setMyRent(books);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    //내 서재 관리 API
     const searchUserBooks = () => {
         bookBackEndAPI.searchUserBooks(user)
         .then((response) => {
@@ -26,6 +58,8 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user, userDetail}) => {
 
     useEffect(() => {
         searchUserBooks();
+        searchUserRent();
+        searchUserLend();
     },[])
 
     return (
@@ -33,8 +67,8 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user, userDetail}) => {
             <SideBarMenu set={setMyState} user={user} userBackEndAPI={userBackEndAPI} myLibrary={myLibrary} />
             {myState === 1 ? <MyPageState bookBackEndAPI={bookBackEndAPI} user={user} myLibrary={myLibrary}/> : null}
             {myState === 2 ? <MyLibrary bookBackEndAPI={bookBackEndAPI} myLibrary={myLibrary}/> : null}
-            {myState === 3 ? <MyRent bookBackEndAPI={bookBackEndAPI} /> : null}
-            {myState === 4 ? <Mylend bookBackEndAPI={bookBackEndAPI} /> : null}
+            {myState === 3 ? <MyRent bookBackEndAPI={bookBackEndAPI} myRent={myRent}/> : null}
+            {myState === 4 ? <Mylend bookBackEndAPI={bookBackEndAPI} myLend={myLend}/> : null}
             {myState === 5 ? <MyChange userBackEndAPI={userBackEndAPI} user={user}/> : null}
         </div>
     )
