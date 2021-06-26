@@ -7,7 +7,7 @@
 - [Docker](https://www.docker.com/)
 
 # 실행 방법
-1, 깃허브 다운받기
+1, 다운받기
 
     git clone https://github.com/neighbor-s-library/front-end.git
 package.json 에서 정의된 Node.JS 구동에 필요한 위한 라이브러리들.
