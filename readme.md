@@ -13,17 +13,17 @@
 package.json 에서 정의된 Node.JS 구동에 필요한 위한 라이브러리들.
     
     "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.21.1",
-    "dot-env": "0.0.1",
-    "firebase": "^8.6.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "axios": "^0.21.1",
+        "dot-env": "0.0.1",
+        "firebase": "^8.6.7",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "4.0.3",
+        "web-vitals": "^1.0.1"
      }
 2, 구동에 필요한 라이브러리들 추가하기
 
