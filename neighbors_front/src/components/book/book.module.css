@@ -23,6 +23,9 @@ li {
 
 .title {
     font-size: makerSmall;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .link {

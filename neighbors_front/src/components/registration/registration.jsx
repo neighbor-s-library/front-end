@@ -9,6 +9,7 @@ const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
     const detailRef = useRef();
     const genreRef = useRef();
     const inputRef = useRef();
+    const depositRef = useRef();
     const [viewImage, setViewImage] = useState("");
     const [saveImage, setSaveImage] = useState();
     
@@ -33,6 +34,7 @@ const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
             title : titleRef.current.value || "",
             writer : writerRef.current.value || "",
             pub : pubRef.current.value || "",
+            deposit: depositRef.current.value || "",
             detail : detailRef.current.value || "",
             genre : genreRef.current.value || "",
             img : uploaded.url,
@@ -72,6 +74,7 @@ const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
                         <input ref={titleRef} className={styles.input} type="text" name="title" placeholder="제목"></input>
                         <input ref={writerRef} className={styles.input} type="text" name="writer" placeholder="지은이"></input>
                         <input ref={pubRef} className={styles.input} type="text" name="pub" placeholder="출판사"></input>
+                        <input ref={depositRef} className={styles.input} type="number" name="deposit" placeholder="최소 보증금"></input>
                     </div>
                 </div>
             </div>

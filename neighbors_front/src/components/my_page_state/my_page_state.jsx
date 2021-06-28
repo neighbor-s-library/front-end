@@ -1,7 +1,7 @@
 import styles from "./my_page_state.module.css";
 import Book from "../book/book";
 
-const MyPageState = ({ myLibrary }) => {
+const MyPageState = ({ myLibrary, myLend }) => {
 
     return (
         <div className={styles.state}>
@@ -15,7 +15,7 @@ const MyPageState = ({ myLibrary }) => {
             <hr className={styles.middleLine}/>
             <h2>대여한 책</h2>
             <div className={styles.myBooks}>
-                {myLibrary.map((book,index) => {
+                {myLend.map((book,index) => {
                     return <Book key={index} book={book}></Book>
                 })}
             </div>

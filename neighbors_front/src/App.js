@@ -12,7 +12,6 @@ import { useState, useEffect } from 'react';
 
 
 function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
-
   const [user, setUser] = useState(window.localStorage.getItem("id"));
   const [userDetail, setUserDetail] = useState({});
 

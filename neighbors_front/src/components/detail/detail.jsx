@@ -9,6 +9,7 @@ const Detail = ({match, bookBackEndAPI}) => {
         .then((response) => {
             const data = response.data.item;
             setBookDetail(data);
+            console.log(data);
         }).catch((error) => {
             console.log(error);
         })
@@ -23,9 +24,13 @@ const Detail = ({match, bookBackEndAPI}) => {
             <div className={styles.container}>
                     <img className={styles.img} src={bookDetail.img} alt="사진" />
                 <div className={styles.metadatas}>
+                    <h5 className={styles.headerTitle}>등록한 사람</h5>
                     <h3 className={styles.metadata}>{bookDetail.nickname}</h3>
+                    <h5 className={styles.headerTitle}>글쓴이</h5>
                     <h3 className={styles.metadata}>{bookDetail.writer}</h3>
+                    <h5 className={styles.headerTitle}>출판사</h5>
                     <h3 className={styles.metadata}>{bookDetail.pub}</h3>
+                    <h5 className={styles.headerTitle}>등록한 시간</h5>
                     <h3 className={styles.metadata}>{bookDetail.created_at}</h3>
                     <button className={styles.button} onClick={() => {}}>채팅하기</button>
                 </div>

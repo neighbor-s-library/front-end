@@ -42,6 +42,11 @@ class BookBackEndAPI {
         const data = await axios.get(`http://localhost:8080/hellobook/renter/${id}`, token);
         return data;
     }
+
+    //특정 도서 수정하기
+    async changeBookDetail(id, token) {
+
+    }
 }
 
 export default BookBackEndAPI;

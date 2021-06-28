@@ -25,7 +25,6 @@ const Login = ({ authService , userBackEndAPI, setUser ,loadUserDetail }) => {
 
         userBackEndAPI.login(login).then((response) => {
             const user = response.data;
-            console.log(response)
             window.localStorage.setItem(user.id,user.token);
             window.localStorage.setItem("id",user.id);
             goToMainPage(user.id);
@@ -86,51 +85,6 @@ const Login = ({ authService , userBackEndAPI, setUser ,loadUserDetail }) => {
                         return console.log(error);
                     })
                 })
-
-
-            // } catch (error) {
-            //     console.log("끼욧");
-            // }
-
-            // userBackEndAPI.userEmailDetail(userProfile.email)
-            // .then((response) => {
-            //     console.log(response)
-                // userBackEndAPI.login(login)
-                // .then((response) => {
-                //     const user = response.data;
-                //     console.log(response)
-                //     window.localStorage.setItem(user.id,user.token);
-                //     window.localStorage.setItem("id",user.id);
-                //     goToMainPage(user.id);
-                //     setUser(user.id);
-                //     loadUserDetail();
-                // })
-                // .catch((error) => {
-                //     return console.log(error);
-                // })
-            // })
-            // .catch((error) => {
-            //     userBackEndAPI.join(join)
-            //     .catch((error) => {
-            //         console.log(error)
-            //         return alert("이미 존재하는 이메일이거나 회원 정보가 바르게 입력되지 않았습니다.")
-            //     })
-                
-            //     userBackEndAPI.login(login)
-            //     .then((response) => {
-            //         const user = response.data;
-            //         console.log(response)
-            //         window.localStorage.setItem(user.id,user.token);
-            //         window.localStorage.setItem("id",user.id);
-            //         goToMainPage(user.id);
-            //         setUser(user.id);
-            //         loadUserDetail();
-            //     })
-            //     .catch((error) => {
-            //         return console.log(error);
-            //     })
-            // })
-            // goToMainPage(data.user.uid);
         });
     }
 

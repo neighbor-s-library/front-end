@@ -82,7 +82,7 @@ const MyPage = ({ userBackEndAPI, bookBackEndAPI, user }) => {
     return (
         <div className={styles.myPage}>
             <SideBarMenu set={setMyState} user={user} userBackEndAPI={userBackEndAPI} myLibrary={myLibrary} userDetails={userDetails}/>
-            {myState === 1 ? <MyPageState bookBackEndAPI={bookBackEndAPI} user={user} myLibrary={myLibrary}/> : null}
+            {myState === 1 ? <MyPageState bookBackEndAPI={bookBackEndAPI} user={user} myLibrary={myLibrary} myLend={myLend}/> : null}
             {myState === 2 ? <MyLibrary bookBackEndAPI={bookBackEndAPI} myLibrary={myLibrary}/> : null}
             {myState === 3 ? <MyRent bookBackEndAPI={bookBackEndAPI} myRent={myRent}/> : null}
             {myState === 4 ? <Mylend bookBackEndAPI={bookBackEndAPI} myLend={myLend}/> : null}
