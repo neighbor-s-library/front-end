@@ -30,6 +30,12 @@ class UserBackEndAPI {
         const data = await axios.post("http://localhost:8080/hellobook/users/pwfind",userEmail,token);
         return data;
     }
+
+    //이메일로 유저의 회원정보를 조회
+    async userEmailDetail(email) {
+        const data = await axios.get(`http://localhost:8080/hellobook/email/${email}`);
+        return data;
+    }
 }
 
 export default UserBackEndAPI;

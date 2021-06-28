@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 
 const UserState = ({ authService, userBackEndAPI , user ,setUser }) => {
   const history = useHistory();
+
   const onLogout = () => {
     history.push("/login");
     window.localStorage.clear();
+    authService.logout();
     setUser(null);
-    // authService.logout();
   }
 
   const [userDetail, setUserDetail] = useState({});
