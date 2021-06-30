@@ -1,10 +1,9 @@
-import styles from "./registration.module.css";
-import { useState, useRef } from "react";
+import styles from "./book_change.module.css";
+import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
+const BookChange = ({match, imageUploader, bookBackEndAPI, user}) => {
     const history = useHistory();
-    //add book form.
     const titleRef = useRef();
     const writerRef = useRef();
     const pubRef = useRef();
@@ -14,7 +13,7 @@ const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
     const depositRef = useRef();
     const [viewImage, setViewImage] = useState("");
     const [saveImage, setSaveImage] = useState();
-    
+    const [bookItem,setBookItem] = useState({});
     const onFileChange = (event) => {
         const reader = new FileReader();
         reader.onload = (event) => {
@@ -28,7 +27,7 @@ const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
         inputRef.current.click();
     }
     
-    const onAddBook = async (event) => {
+    const onEditBook = async (event) => {
         event.preventDefault();
         const uploaded = await imageUploader.upload(saveImage);
         const config = {
@@ -38,24 +37,39 @@ const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
         }
 
         const book = {
+            id : match.params.id,
             title : titleRef.current.value || "",
             writer : writerRef.current.value || "",
             pub : pubRef.current.value || "",
             deposit: depositRef.current.value || "",
             detail : detailRef.current.value || "",
             genre : genreRef.current.value || "",
-            img : uploaded.url,
+            img : uploaded.url || bookItem.img,
             user_id: user
         }
-
-        bookBackEndAPI.addBook(book,config)
+        bookBackEndAPI.changeBookDetail(book,config)
         .then((response) => {
-            history.push(`/detail/${response.data.id}`)
+            history.push(`/detail/${match.params.id}`);
         })
         .catch((error) => {
-            console.log(error)
+            console.log(error);
         })
+    }    
+
+    const searchBookDetail = () => {
+      bookBackEndAPI.bookDetail(match.params.id)
+      .then((response) => {
+        setViewImage(response.data.item.img);
+        setBookItem(response.data.item);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
+
+    useEffect(() => {
+      searchBookDetail();
+    }, [])
 
     return (
         <form className={styles.detail}>
@@ -88,9 +102,9 @@ const Registration = ({match, imageUploader, bookBackEndAPI, user}) => {
                 </div>
             </div>
             <textarea ref={detailRef} className={styles.textBox} name="detail" cols="30" rows="10" placeholder="상세설명"></textarea>
-            <button className={styles.button} onClick={onAddBook}>등 록 하 기</button>
+            <button className={styles.button} onClick={onEditBook}>수 정 하 기</button>
         </form>
     )
 }
 
-export default Registration;
+export default BookChange;

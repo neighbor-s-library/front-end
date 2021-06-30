@@ -9,7 +9,6 @@ const Detail = ({match, bookBackEndAPI}) => {
         .then((response) => {
             const data = response.data.item;
             setBookDetail(data);
-            console.log(data);
         }).catch((error) => {
             console.log(error);
         })

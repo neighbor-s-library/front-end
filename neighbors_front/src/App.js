@@ -8,6 +8,7 @@ import MyPage from "./components/my_page/my_page";
 import Detail from "./components/detail/detail";
 import Registration from "./components/registration/registration";
 import UserState from "./components/user_state/user_state";
+import BookChange from "./components/book_change/book_change";
 import { useState, useEffect } from 'react';
 
 
@@ -57,6 +58,7 @@ function App({ authService, imageUploader, userBackEndAPI, bookBackEndAPI }) {
         <Route exact path="/registration">
           <Registration imageUploader={imageUploader} bookBackEndAPI={bookBackEndAPI} user={user}/>
         </Route>
+        <Route exact path="/book-change/:id" render={(props) => <BookChange {...props} bookBackEndAPI={bookBackEndAPI} imageUploader={imageUploader} user={user}/>} />
       </Switch>
     </Router>    
   );
